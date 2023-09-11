@@ -1,7 +1,7 @@
 import { TextField, ThemeProvider, createTheme } from "@mui/material";
 import React from "react";
 
-const Header = () => {
+const Header = ({word, setWord}) => {
   const darkTheme = createTheme({
     palette: {
         primary: {
@@ -12,7 +12,7 @@ const Header = () => {
   });
   return (
     <div className="header">
-      <span className="title">Find Word</span>
+      <span className="title">Dictionary</span>
       <div className="inputs">
         <ThemeProvider theme={darkTheme}>
           <TextField 
@@ -20,6 +20,8 @@ const Header = () => {
             id="standard-basic" 
             label="Search a word..." 
             variant="standard" 
+            value={word}
+            onChange={(e)=>setWord(e.target.value)}
             />
         </ThemeProvider>
       </div>
